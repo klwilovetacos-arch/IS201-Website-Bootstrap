@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Joke Generator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 50px;
+            background-image: url('https://wallpapers.com/images/hd/universal-studios-classic-logo-iclfmxloe4gqzo81.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            min-height: 100vh;
+            color: white;
+        }
+        #back-link {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        #setup, #punchline {
+            margin-top: 20px;
+            font-size: 18px;
+            background: rgba(255, 255, 255, 0.8);
+            padding: 10px;
+            border-radius: 5px;
+            display: inline-block;
+        }
+    </style>
+</head>
+<body>
+    <a href="scratch.html" id="back-link">Back to Scratch</a>
+    <h1>Universal Themed Joke Generator</h1>
+    <button onclick="generateJoke()">Generate Joke</button>
+    <button onclick="showAnswer()">Answer</button>
+    <div id="setup" style="margin-top: 20px; font-size: 18px;"></div>
+    <div id="punchline" style="margin-top: 10px; font-size: 18px; font-weight: bold;"></div>
+
+    <script>
+        const jokes = [
+            { setup: "Why did Harry Potter get a job at the bank?", punchline: "Because he was great with spells!" },
+            { setup: "What do you call a dinosaur with an extensive vocabulary?", punchline: "A thesaurus!" },
+            { setup: "Why did the superhero bring a ladder to the bar?", punchline: "Because he heard the drinks were on the house!" },
+            { setup: "How does Harry Potter get down from a horse?", punchline: "He dismounts with his wand!" },
+            { setup: "Why can't you hear a pterodactyl go to the bathroom?", punchline: "Because the 'P' is silent!" },
+            { setup: "What is a superhero's favorite type of music?", punchline: "Heavy metal!" },
+            { setup: "Why did the wizard refuse to play cards?", punchline: "Because he was afraid of the deck!" },
+            { setup: "What do you call a group of musical dinosaurs?", punchline: "A dino-saur choir!" },
+            { setup: "Why did the superhero go to school?", punchline: "To improve his super powers!" },
+            { setup: "How does a wizard organize a party?", punchline: "He casts a spell-binding event!" }
+        ];
+
+        function generateJoke() {
+            const randomIndex = Math.floor(Math.random() * jokes.length);
+            document.getElementById('setup').innerText = jokes[randomIndex].setup;
+            document.getElementById('punchline').innerText = "";
+        }
+
+        function showAnswer() {
+            const currentSetup = document.getElementById('setup').innerText;
+            const joke = jokes.find(j => j.setup === currentSetup);
+            if (joke) {
+                document.getElementById('punchline').innerText = joke.punchline;
+            }
+        }
+    </script>
+</body>
+</html></content>
